@@ -1,0 +1,2 @@
+# Log
+A simple logger.
