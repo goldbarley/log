@@ -1,3 +1,4 @@
+#ifndef NDEBUG
 #define _POSIX_C_SOURCE (200809L)
 
 #include <stdarg.h>
@@ -185,3 +186,4 @@ logret_t log_dwrite(enum log_sev sev, logfd_t fd, const char *LOG_RESTRICT file,
 {
 	return log_dwritef(sev, fd, file, line, "%s", s);
 }
+#endif /* DEBUG */

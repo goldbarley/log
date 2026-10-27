@@ -1,34 +1,4 @@
-#include <unistd.h>
-
 #include <log/log.h>
-
-// int main(void)
-// {
-// 	log_open(LOG_FD_DEFAULT);
-//
-// 	LOG_INFF("LOG_INFF\n");
-// 	LOG_DBGF("LOG_DBGF\n");
-// 	LOG_WRNF("LOG_WRNF\n");
-// 	LOG_ERRF("LOG_ERRF\n");
-// 	LOG_FTLF("LOG_FTLF\n");
-// 	LOG_DINFF(LOG_FD_STDOUT, "LOG_DINFF\n");
-// 	LOG_DDBGF(LOG_FD_STDOUT, "LOG_DDBGF\n");
-// 	LOG_DWRNF(LOG_FD_STDOUT, "LOG_DWRNF\n");
-// 	LOG_DERRF(LOG_FD_STDOUT, "LOG_DERRF\n");
-// 	LOG_DFTLF(LOG_FD_STDOUT, "LOG_DFTLF\n");
-// 	LOG_INF("LOG_INF\n");
-// 	LOG_DBG("LOG_DBG\n");
-// 	LOG_WRN("LOG_WRN\n");
-// 	LOG_ERR("LOG_ERR\n");
-// 	LOG_FTL("LOG_FTL\n");
-// 	LOG_DINF(LOG_FD_STDOUT, "LOG_DINF\n");
-// 	LOG_DDBG(LOG_FD_STDOUT, "LOG_DDBG\n");
-// 	LOG_DWRN(LOG_FD_STDOUT, "LOG_DWRN\n");
-// 	LOG_DERR(LOG_FD_STDOUT, "LOG_DERR\n");
-// 	LOG_DFTL(LOG_FD_STDOUT, "LOG_DFTL\n");
-//
-// 	log_close();
-// }
 
 int main(void)
 {

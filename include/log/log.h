@@ -69,6 +69,7 @@ typedef int logfd_t;
 #define LOG_FD_STDOUT (1)
 #define LOG_FD_STDERR (2)
 
+#ifndef NDEBUG
 LOGAPI_ATTR
 logret_t log_open(logfd_t fd);
 
@@ -94,7 +95,17 @@ logret_t log_write(enum log_sev sev, const char *LOG_RESTRICT file,
 LOGAPI_ATTR
 logret_t log_dwrite(enum log_sev sev, logfd_t fd, const char *LOG_RESTRICT file,
 		   uint32_t line, const char *LOG_RESTRICT s);
+#else
+#define log_open(fd)
+#define log_close()
+#define log_writev(sev, fd, file, line, format, args)
+#define log_writef(sev, fd, file, line, ...)
+#define log_dwritef(sev, fd, file, line, ...)
+#define log_write(sev, file, line, s)
+#define log_dwrite(sev, fd, file, line, s)
+#endif /* NDEBUG */
 
+#ifndef NDEBUG
 #define LOG_INFF(...) \
 	do \
 		log_writef(LOG_SEV_INF, __FILE__, __LINE__, __VA_ARGS__); \
@@ -194,5 +205,27 @@ logret_t log_dwrite(enum log_sev sev, logfd_t fd, const char *LOG_RESTRICT file,
 	do \
 		log_dwrite(LOG_SEV_FTL, d, __FILE__, __LINE__, s); \
 	while (0)
+#else
+#define LOG_INFF(...)
+#define LOG_DBGF(...)
+#define LOG_WRNF(...)
+#define LOG_ERRF(...)
+#define LOG_FTLF(...)
+#define LOG_DINFF(d, ...)
+#define LOG_DDBGF(d, ...)
+#define LOG_DWRNF(d, ...)
+#define LOG_DERRF(d, ...)
+#define LOG_DFTLF(d, ...)
+#define LOG_INF(s)
+#define LOG_DBG(s)
+#define LOG_WRN(s)
+#define LOG_ERR(s)
+#define LOG_FTL(s)
+#define LOG_DINF(d, s)
+#define LOG_DDBG(d, s)
+#define LOG_DWRN(d, s)
+#define LOG_DERR(d, s)
+#define LOG_DFTL(d, s)
+#endif /* NDEBUG */
 
 #endif /* LOG_H_ */

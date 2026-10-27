@@ -12,6 +12,10 @@ message.
 
 If you dislike this format, you can fork this repository and make changes on your own. The source is extremely small very easy to navigate.
 
+The logger only logs the messages in debug mode (i.e. when `NDEBUG` is **not** defined).
+You can change this by removing the `#ifndef NDEBUG` pre-processor conditionals in
+the header and the source files.
+
 ## Obtaining sources
 It is completely self-contained, except some POSIX-specific source and the standard C library, of course.
 Clone it with
